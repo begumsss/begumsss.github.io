@@ -1,2 +1,191 @@
-<h1>Merhaba!</h1>
-<p>Burası benim yeni blog sitem.</p>
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Begüm'ün Dünyası</title>
+    <!-- Görseldeki gibi fırça efektli bir font -->
+    <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        /* Genel Ayarlar */
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            background-color: #fcfcfc;
+            color: #333;
+            scroll-behavior: smooth;
+        }
+
+        /* 1. Karşılama Ekranı (Hero Section) */
+        .hero {
+            height: 100vh;
+            /* Kendi fotoğrafını yüklediğinde 'senin-fotografin.jpg' kısmını değiştireceğiz */
+            background-image: url('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=2564&auto=format&fit=crop'); 
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-family: 'Permanent Marker', cursive;
+            font-size: 6rem;
+            color: #fff;
+            text-shadow: 2px 4px 10px rgba(0,0,0,0.5);
+            margin: 0;
+            letter-spacing: 2px;
+        }
+
+        /* Bölüm Başlıkları */
+        h2 {
+            font-family: 'Permanent Marker', cursive;
+            font-size: 3rem;
+            text-align: center;
+            margin-bottom: 40px;
+            color: #2c3e50;
+        }
+
+        /* 2. Kitaplık Bölümü */
+        .section {
+            padding: 80px 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .bookshelf {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            border-bottom: 15px solid #8B4513; /* Raf görünümü */
+            padding-bottom: 0;
+            align-items: flex-end;
+            height: 250px;
+        }
+
+        .book {
+            width: 50px;
+            height: 200px;
+            background-color: #e74c3c;
+            border-radius: 3px 3px 0 0;
+            color: white;
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+            text-align: center;
+            padding: 10px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .book:hover {
+            transform: translateY(-20px); /* Tıklanabilir hissi için yukarı kalkar */
+        }
+        
+        .book:nth-child(2) { background-color: #3498db; height: 220px; }
+        .book:nth-child(3) { background-color: #f1c40f; height: 180px; color: #333; }
+        .book:nth-child(4) { background-color: #2ecc71; height: 210px; }
+
+        /* 3. İşlerim (Klasörler) Bölümü */
+        .folders {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            justify-content: center;
+        }
+
+        .folder {
+            background-color: #f39c12;
+            height: 150px;
+            border-radius: 5px 15px 5px 5px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: 0.3s;
+            text-align: center;
+            padding: 10px;
+        }
+
+        .folder::before {
+            content: '';
+            position: absolute;
+            top: -15px;
+            left: 0;
+            width: 80px;
+            height: 15px;
+            background-color: #e67e22;
+            border-radius: 10px 10px 0 0;
+        }
+
+        .folder:hover {
+            transform: scale(1.05);
+            background-color: #e67e22;
+        }
+
+        /* 4. Seyahatler (Uçak) Bölümü */
+        .travel {
+            text-align: center;
+            background-color: #e0f7fa;
+            border-radius: 20px;
+            padding: 50px 20px;
+        }
+
+        .plane-icon {
+            font-size: 5rem;
+            display: inline-block;
+            transition: transform 0.5s ease;
+        }
+        
+        .travel:hover .plane-icon {
+            transform: translateX(50px) translateY(-20px);
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- 1. Karşılama Ekranı -->
+    <div class="hero">
+        <h1>merhaba,<br>ben begüm.</h1>
+    </div>
+
+    <!-- 2. Kitaplar Rafı -->
+    <div class="section">
+        <h2>Okuduklarım</h2>
+        <div class="bookshelf">
+            <!-- href="#" kısımlarına ileride blog yazılarına giden linkleri ekleyeceğiz -->
+            <a href="#" class="book">1984</a>
+            <a href="#" class="book">Kürk Mantolu Madonna</a>
+            <a href="#" class="book">Saatleri Ayarlama Enstitüsü</a>
+            <a href="#" class="book">Görsel Düşünme</a>
+        </div>
+    </div>
+
+    <!-- 3. İşlerim Klasörleri -->
+    <div class="section">
+        <h2>İşlerim</h2>
+        <div class="folders">
+            <div class="folder">Başka Kent Sokakları</div>
+            <div class="folder">Cam Füzyon Tasarımları</div>
+            <div class="folder">Arayüz (UI) Projeleri</div>
+            <div class="folder">Marka Kimliği</div>
+        </div>
+    </div>
+
+    <!-- 4. Seyahatler -->
+    <div class="section travel">
+        <h2>Seyahatlerim</h2>
+        <div class="plane-icon">✈️</div>
+        <p>Gezdiğim, gördüğüm ve ilham aldığım yerler yakında burada...</p>
+    </div>
+
+</body>
+</html>
