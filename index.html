@@ -4,39 +4,47 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Begüm'ün Dünyası</title>
-    <!-- Görseldeki gibi fırça efektli bir font -->
     <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
-        /* Genel Ayarlar */
+        /* Genel Ayarlar - SİYAH TEMA */
         body, html {
             margin: 0;
             padding: 0;
             font-family: 'Poppins', sans-serif;
-            background-color: #fcfcfc;
-            color: #333;
+            background-color: #121212; /* Siyah arka plan */
+            color: #ffffff; /* Beyaz metin */
             scroll-behavior: smooth;
         }
 
         /* 1. Karşılama Ekranı (Hero Section) */
         .hero {
             height: 100vh;
-            /* Kendi fotoğrafını yüklediğinde 'senin-fotografin.jpg' kısmını değiştireceğiz */
-            background-image: url('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=2564&auto=format&fit=crop'); 
+            /* FOTOĞRAF KISMI: Kendi fotoğrafını yüklediğinde adını buraya yazacağız */
+            background-image: url('benim-fotografim.jpg'); 
             background-size: cover;
             background-position: center;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
+            background-color: #000; /* Fotoğraf yüklenene kadar siyah dursun */
         }
 
+        /* ANİMASYON EKLENDİ */
         .hero h1 {
             font-family: 'Permanent Marker', cursive;
             font-size: 6rem;
             color: #fff;
-            text-shadow: 2px 4px 10px rgba(0,0,0,0.5);
+            text-shadow: 2px 4px 15px rgba(0,0,0,0.8);
             margin: 0;
             letter-spacing: 2px;
+            animation: yukariKayarakBelir 2s ease-out forwards;
+            opacity: 0; /* Başlangıçta görünmez */
+        }
+
+        @keyframes yukariKayarakBelir {
+            0% { opacity: 0; transform: translateY(40px); }
+            100% { opacity: 1; transform: translateY(0); }
         }
 
         /* Bölüm Başlıkları */
@@ -45,7 +53,14 @@
             font-size: 3rem;
             text-align: center;
             margin-bottom: 40px;
-            color: #2c3e50;
+            color: #ffffff; /* Beyaz başlıklar */
+        }
+
+        /* Türkçe karakter sorunu olan başlık için özel class */
+        .duz-font {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            font-size: 2.5rem;
         }
 
         /* 2. Kitaplık Bölümü */
@@ -59,7 +74,7 @@
             display: flex;
             justify-content: center;
             gap: 15px;
-            border-bottom: 15px solid #8B4513; /* Raf görünümü */
+            border-bottom: 15px solid #4a4a4a; /* Gri/Siyah raf görünümü */
             padding-bottom: 0;
             align-items: flex-end;
             height: 250px;
@@ -81,10 +96,7 @@
             font-weight: bold;
         }
 
-        .book:hover {
-            transform: translateY(-20px); /* Tıklanabilir hissi için yukarı kalkar */
-        }
-        
+        .book:hover { transform: translateY(-20px); }
         .book:nth-child(2) { background-color: #3498db; height: 220px; }
         .book:nth-child(3) { background-color: #f1c40f; height: 180px; color: #333; }
         .book:nth-child(4) { background-color: #2ecc71; height: 210px; }
@@ -112,6 +124,7 @@
             transition: 0.3s;
             text-align: center;
             padding: 10px;
+            text-decoration: none;
         }
 
         .folder::before {
@@ -133,9 +146,10 @@
         /* 4. Seyahatler (Uçak) Bölümü */
         .travel {
             text-align: center;
-            background-color: #e0f7fa;
+            background-color: #1a1a1a; /* Koyu gri arka plan */
             border-radius: 20px;
             padding: 50px 20px;
+            border: 1px solid #333;
         }
 
         .plane-icon {
@@ -147,7 +161,6 @@
         .travel:hover .plane-icon {
             transform: translateX(50px) translateY(-20px);
         }
-
     </style>
 </head>
 <body>
@@ -159,24 +172,28 @@
 
     <!-- 2. Kitaplar Rafı -->
     <div class="section">
-        <h2>Okuduklarım</h2>
+        <h2>Okuduklarim</h2>
         <div class="bookshelf">
-            <!-- href="#" kısımlarına ileride blog yazılarına giden linkleri ekleyeceğiz -->
-            <a href="#" class="book">1984</a>
-            <a href="#" class="book">Kürk Mantolu Madonna</a>
-            <a href="#" class="book">Saatleri Ayarlama Enstitüsü</a>
-            <a href="#" class="book">Görsel Düşünme</a>
+            <!-- 
+                YENİ BİR SAYFAYA GİTMEK İÇİN: 
+                href="sayfa-adi.html" yazılır. Arasındaki metin ise kitap adıdır. 
+            -->
+            <a href="1984.html" class="book">1984</a>
+            <a href="madonna.html" class="book">Kürk Mantolu Madonna</a>
+            <a href="saatleri-ayarlama.html" class="book">Saatleri Ayarlama Enstitüsü</a>
+            <a href="gorsel-dusunme.html" class="book">Görsel Düşünme</a>
         </div>
     </div>
 
     <!-- 3. İşlerim Klasörleri -->
     <div class="section">
-        <h2>İşlerim</h2>
+        <!-- Türkçe karakter düzeltmesi yapılmış başlık -->
+        <h2 class="duz-font">İşlerim</h2>
         <div class="folders">
-            <div class="folder">Başka Kent Sokakları</div>
-            <div class="folder">Cam Füzyon Tasarımları</div>
-            <div class="folder">Arayüz (UI) Projeleri</div>
-            <div class="folder">Marka Kimliği</div>
+            <a href="baska-kent.html" class="folder">Başka Kent Sokakları</a>
+            <a href="cam-fuzyon.html" class="folder">Cam Füzyon Tasarımları</a>
+            <a href="arayuz.html" class="folder">Arayüz (UI) Projeleri</a>
+            <a href="marka.html" class="folder">Marka Kimliği</a>
         </div>
     </div>
 
