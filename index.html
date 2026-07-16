@@ -6,188 +6,129 @@
     <title>Begüm'ün Dünyası</title>
     <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
-        /* Genel Ayarlar - SİYAH TEMA */
         body, html {
-            margin: 0;
-            padding: 0;
+            margin: 0; padding: 0;
             font-family: 'Poppins', sans-serif;
-            background-color: #121212; /* Siyah arka plan */
-            color: #ffffff; /* Beyaz metin */
+            background-color: #0a0a0a; /* Derin estetik siyah */
+            color: #e0e0e0;
             scroll-behavior: smooth;
         }
 
-        /* 1. Karşılama Ekranı (Hero Section) */
+        /* Sinematik Giriş Animasyonu */
         .hero {
             height: 100vh;
-            /* FOTOĞRAF KISMI: Kendi fotoğrafını yüklediğinde adını buraya yazacağız */
-            background-image: url('benim-fotografim.jpg'); 
-            background-size: cover;
-            background-position: center;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
-            background-color: #000; /* Fotoğraf yüklenene kadar siyah dursun */
+            background: radial-gradient(circle, #1a1a1a 0%, #0a0a0a 100%);
         }
 
-        /* ANİMASYON EKLENDİ */
         .hero h1 {
             font-family: 'Permanent Marker', cursive;
             font-size: 6rem;
             color: #fff;
-            text-shadow: 2px 4px 15px rgba(0,0,0,0.8);
             margin: 0;
-            letter-spacing: 2px;
-            animation: yukariKayarakBelir 2s ease-out forwards;
-            opacity: 0; /* Başlangıçta görünmez */
+            animation: sinematikGiris 3s ease-out forwards;
+            opacity: 0; 
         }
 
-        @keyframes yukariKayarakBelir {
-            0% { opacity: 0; transform: translateY(40px); }
-            100% { opacity: 1; transform: translateY(0); }
+        @keyframes sinematikGiris {
+            0% { opacity: 0; filter: blur(20px); transform: scale(1.1); letter-spacing: -5px; }
+            100% { opacity: 1; filter: blur(0px); transform: scale(1); letter-spacing: 2px; }
         }
 
-        /* Bölüm Başlıkları */
         h2 {
             font-family: 'Permanent Marker', cursive;
             font-size: 3rem;
             text-align: center;
             margin-bottom: 40px;
-            color: #ffffff; /* Beyaz başlıklar */
+            color: #fff;
+            letter-spacing: 1px;
         }
 
-        /* Türkçe karakter sorunu olan başlık için özel class */
         .duz-font {
             font-family: 'Poppins', sans-serif;
             font-weight: 600;
             font-size: 2.5rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
         }
 
-        /* 2. Kitaplık Bölümü */
-        .section {
-            padding: 80px 20px;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
+        .section { padding: 80px 20px; max-width: 1000px; margin: 0 auto; }
         
+        /* Renkli Kitaplar (Siyah temada çok iyi patlar) */
         .bookshelf {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            border-bottom: 15px solid #4a4a4a; /* Gri/Siyah raf görünümü */
-            padding-bottom: 0;
-            align-items: flex-end;
-            height: 250px;
+            display: flex; justify-content: center; gap: 15px;
+            border-bottom: 3px solid #333; padding-bottom: 0;
+            align-items: flex-end; height: 250px;
         }
 
         .book {
-            width: 50px;
-            height: 200px;
+            width: 50px; height: 200px;
             background-color: #e74c3c;
-            border-radius: 3px 3px 0 0;
-            color: white;
-            writing-mode: vertical-rl;
-            text-orientation: mixed;
-            text-align: center;
-            padding: 10px;
-            cursor: pointer;
-            transition: transform 0.3s ease;
-            text-decoration: none;
-            font-weight: bold;
+            border-radius: 3px 3px 0 0; color: white;
+            writing-mode: vertical-rl; text-orientation: mixed;
+            text-align: center; padding: 10px; cursor: pointer;
+            transition: 0.4s ease; text-decoration: none; font-weight: bold;
+            box-shadow: 0 0 15px rgba(231, 76, 60, 0.2);
         }
 
-        .book:hover { transform: translateY(-20px); }
-        .book:nth-child(2) { background-color: #3498db; height: 220px; }
-        .book:nth-child(3) { background-color: #f1c40f; height: 180px; color: #333; }
-        .book:nth-child(4) { background-color: #2ecc71; height: 210px; }
+        .book:hover { transform: translateY(-20px); filter: brightness(1.2); }
+        .book:nth-child(2) { background-color: #3498db; height: 220px; box-shadow: 0 0 15px rgba(52, 152, 219, 0.2); }
+        .book:nth-child(3) { background-color: #f1c40f; height: 180px; color: #111; box-shadow: 0 0 15px rgba(241, 196, 15, 0.2); }
+        .book:nth-child(4) { background-color: #2ecc71; height: 210px; box-shadow: 0 0 15px rgba(46, 204, 113, 0.2); }
 
-        /* 3. İşlerim (Klasörler) Bölümü */
+        /* Estetik Minimal Klasörler */
         .folders {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 30px;
-            justify-content: center;
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px; justify-content: center;
         }
 
         .folder {
-            background-color: #f39c12;
-            height: 150px;
-            border-radius: 5px 15px 5px 5px;
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-weight: 600;
-            font-size: 1.2rem;
-            cursor: pointer;
-            transition: 0.3s;
-            text-align: center;
-            padding: 10px;
+            background-color: #1a1a1a; border: 1px solid #333;
+            height: 150px; border-radius: 5px 15px 5px 5px;
+            position: relative; display: flex; align-items: center; justify-content: center;
+            color: #fff; font-weight: 300; font-size: 1.1rem;
+            cursor: pointer; transition: 0.3s; text-align: center; padding: 10px;
             text-decoration: none;
         }
 
         .folder::before {
-            content: '';
-            position: absolute;
-            top: -15px;
-            left: 0;
-            width: 80px;
-            height: 15px;
-            background-color: #e67e22;
-            border-radius: 10px 10px 0 0;
+            content: ''; position: absolute; top: -11px; left: -1px;
+            width: 80px; height: 10px;
+            background-color: #1a1a1a; border: 1px solid #333; border-bottom: none;
+            border-radius: 5px 5px 0 0;
         }
 
         .folder:hover {
-            transform: scale(1.05);
-            background-color: #e67e22;
+            transform: translateY(-10px);
+            border-color: #fff; box-shadow: 0 10px 30px rgba(255,255,255,0.05);
         }
+        .folder:hover::before { border-color: #fff; }
 
-        /* 4. Seyahatler (Uçak) Bölümü */
-        .travel {
-            text-align: center;
-            background-color: #1a1a1a; /* Koyu gri arka plan */
-            border-radius: 20px;
-            padding: 50px 20px;
-            border: 1px solid #333;
-        }
-
-        .plane-icon {
-            font-size: 5rem;
-            display: inline-block;
-            transition: transform 0.5s ease;
-        }
-        
-        .travel:hover .plane-icon {
-            transform: translateX(50px) translateY(-20px);
-        }
+        .travel { text-align: center; padding: 50px 20px; margin-top: 50px; }
+        .plane-icon { font-size: 4rem; display: inline-block; transition: transform 0.8s ease; }
+        .travel:hover .plane-icon { transform: translateX(80px) translateY(-30px) rotate(15deg); }
     </style>
 </head>
 <body>
 
-    <!-- 1. Karşılama Ekranı -->
     <div class="hero">
         <h1>merhaba,<br>ben begüm.</h1>
     </div>
 
-    <!-- 2. Kitaplar Rafı -->
     <div class="section">
         <h2>Okuduklarim</h2>
         <div class="bookshelf">
-            <!-- 
-                YENİ BİR SAYFAYA GİTMEK İÇİN: 
-                href="sayfa-adi.html" yazılır. Arasındaki metin ise kitap adıdır. 
-            -->
             <a href="1984.html" class="book">1984</a>
             <a href="madonna.html" class="book">Kürk Mantolu Madonna</a>
-            <a href="saatleri-ayarlama.html" class="book">Saatleri Ayarlama Enstitüsü</a>
+            <a href="saatleri-ayarlama.html" class="book">Saatleri Ayarlama Enst.</a>
             <a href="gorsel-dusunme.html" class="book">Görsel Düşünme</a>
         </div>
     </div>
 
-    <!-- 3. İşlerim Klasörleri -->
     <div class="section">
-        <!-- Türkçe karakter düzeltmesi yapılmış başlık -->
         <h2 class="duz-font">İşlerim</h2>
         <div class="folders">
             <a href="baska-kent.html" class="folder">Başka Kent Sokakları</a>
@@ -197,11 +138,9 @@
         </div>
     </div>
 
-    <!-- 4. Seyahatler -->
     <div class="section travel">
-        <h2>Seyahatlerim</h2>
+        <h2 class="duz-font" style="font-size: 1.5rem;">Seyahatlerim</h2>
         <div class="plane-icon">✈️</div>
-        <p>Gezdiğim, gördüğüm ve ilham aldığım yerler yakında burada...</p>
     </div>
 
 </body>
